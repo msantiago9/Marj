@@ -1,5 +1,6 @@
 .stackedit {
     background-color: rgb(20, 20, 20);
+    transition: background-color 150ms linear;
 }
 
 .stackedit__html {
