@@ -14,16 +14,15 @@ app.config["SESSION_COOKIE_SECURE"] = True
 
 @app.before_first_request
 def initialize_session_variables():
-    print("First init")
-    if not session.get("size"):
+    if session.get("size") is None:
         session["size"] = "normal"
-    if not session.get("theme"):
+    if session.get("theme") is None:
         session["theme"] = "dark"
 
 
 @app.route("/")
 def index():
-    if not session["size"] or not session["theme"]:
+    if session.get("size") is None or session.get("theme") is None:
         initialize_session_variables()
     return render_template("index.html", size=session["size"], theme=session["theme"])
 
@@ -41,12 +40,14 @@ def tutorial_page(id):
         return template
     except TemplateNotFound:
         return redirect(url_for("index"))
+    except KeyError:
+        initialize_session_variables()
+        return tutorial_page(id)
 
 
 @app.route("/size", methods=["POST"])
 def size_toggle():
     size = request.json.get("size")
-    print(size)
     session["size"] = size
     return jsonify({"response": 200})
 
