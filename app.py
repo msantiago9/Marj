@@ -22,7 +22,8 @@ def initialize_session_variables():
 
 @app.route("/")
 def index():
-    print(session["size"])
+    if not session["size"] or not session["theme"]:
+        initialize_session_variables()
     return render_template("index.html", size=session["size"], theme=session["theme"])
 
 
