@@ -12,27 +12,47 @@
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png')}}">
-    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest')}}">
-    <link rel="mask-icon" href="{{ url_for('static', filename='safari-pinned-tab.svg')}}" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='favicon/safari-pinned-tab.svg')}}" color="#5bbad5">
     <link rel="stylesheet" href="https://stackedit.io/style.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='tuts.css')}}" />
+    {% if 'dark' == theme %}
     <link rel="stylesheet" href="{{ url_for('static', filename='dark.css')}}" />
+    {% elif 'light' == theme %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='light.css')}}" />
+    {% endif %}
 
     <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body class="stackedit">
-    <div class="stackedit__html normal">
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+    <div class="stackedit__html {{size}}">
+        <a href="/" class="no-link-style">⌂ Home</a>
         <span id="theme-toggler" onclick="toggleTheme()">Toggle Theme</span>
         <br>
         <span id="size-toggler" onclick="toggleSize()">Toggle Size</span>
-        {% block content %} {% endblock %}
+        {% block content %}
+        {% endblock %}
+        <hr>
+        <a href="#theme-toggler" class="no-link-style">return to top</a>
+        <div class="flex-ends">
+            <a href="{{prev}}" class="no-link-style"> ⬅ Previous</a>
+            <a href="{{next}}" class="no-link-style"> Next ➡</a>
+        </div>
+        <div class="bottom-nav">
+            <div>
+                <a href="/" class="no-link-style">⌂ Home</a>
+            </div>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='themeToggler.js')}}"></script>
     <script src="{{ url_for('static', filename='sizeToggler.js')}}"></script>
+    <script src="{{ url_for('static', filename='scrollBar.js')}}"></script>
 </body>
 
 </html>

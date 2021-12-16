@@ -1,11 +1,52 @@
-{% extends "tutorialbase.html" %}
-{% block title %} Login Page {% endblock %}
-{% block content %}
-<img src="https://static.fandomspot.com/images/06/7444/00-featured-serial-experiments-lain-anime-computer-room-dimly-lit-screenshot.jpg"
-    alt="lain" width=500 id="top-image-index">
-<pre class=" language-markdown"><code class="prism  language-markdown"><span class="token list punctuation">+</span> Tutorials for APCS Students, WIP
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="CS Tutorials">
+    <meta property="og:description" content="And other ramblings">
+    <meta property="og:image"
+        content="https://cdn.discordapp.com/attachments/595772150078767106/918057554368667668/Untitled-1.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='favicon/safari-pinned-tab.svg')}}" color="#5bbad5">
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='tuts.css')}}" />
+    {% if 'dark' == theme %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='dark.css')}}" />
+    {% elif 'light' == theme %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='light.css')}}" />
+    {% endif %}
+    <title>Home</title>
+</head>
+
+<body class="stackedit">
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+    <div class="stackedit__html {{size}}">
+        <span id="theme-toggler" onclick="toggleTheme()">Toggle Theme</span>
+        <br>
+        <span id="size-toggler" onclick="toggleSize()">Toggle Size</span>
+        <img src="{{ url_for('static', filename='images/lain1.jpg')}}" alt="lain" width=500 id="top-image-index">
+        <pre class=" language-markdown"><code class="prism  language-markdown"><span class="token list punctuation">+</span> Tutorials for APCS Students, WIP
 </code></pre>
-<p><a href="./preface.html" class="no-link-style">Lesson 0 - Preface</a><br>
-    <a href="./1.html" class="no-link-style">Lesson 1 - Hello World</a>
-</p>
-{% endblock %}
+        <p><a href="./java/0" class="no-link-style">Lesson 0 - Preface</a><br>
+            <a href="./java/1" class="no-link-style">Lesson 1 - Hello World</a>
+        </p>
+        <hr>
+        <a href="#theme-toggler" class="no-link-style" id="return-to-top">return to top</a>
+
+    </div>
+    <script src="{{ url_for('static', filename='themeToggler.js')}}"></script>
+    <script src="{{ url_for('static', filename='sizeToggler.js')}}"></script>
+    <script src="{{ url_for('static', filename='scrollBar.js')}}"></script>
+</body>
+
+</html>

@@ -8,7 +8,6 @@
     color: rgb(0, 0, 0);
     box-shadow: 10px 10px 5px 12px grey;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    transition: background-color 150ms linear, color 150ms linear, box-shadow 150ms linear, text-shadow 150ms linear;
 }
 
 blockquote>p {

@@ -16,6 +16,19 @@ summary {
   top: 12vh;
 }
 
+#return-to-top {
+  margin-top: 30px;
+}
+
+#top-exit {
+  text-decoration: none;
+  color: inherit;
+}
+
+#top-exit:hover {
+  filter: brightness(0.8);
+}
+
 .stackedit {
   padding-top: 40px;
 }
@@ -35,9 +48,15 @@ summary {
 
 .bottom-nav>div {
   margin-bottom: 5px;
+  width: 100px;
   position: absolute;
-  right: 5%;
+  left: 45%;
   bottom: 0px;
+}
+
+.bottom-nav>div>a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .bordered {
@@ -74,8 +93,15 @@ summary {
   filter: brightness(0.8);
 }
 
+.flex-ends {
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
 @media screen and (orientation: portrait) {
-  #size-toggler {
+  #size-toggler, #progressbar {
     display: none;
   }
 
@@ -84,5 +110,77 @@ summary {
     transform-origin: center;
     margin-top: inherit;
     transition: background-color 150ms linear, color 150ms linear, box-shadow 150ms linear, text-shadow 150ms linear, transform 150ms ease-in, transform-origin 150ms ease-in, margin-top 150ms ease-in;
+  }
+}
+
+/* BEGIN SCROLLBAR ANIMATION SECTION*/
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+* {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+#scrollPath {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#progressbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10px;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+}
+
+#progressbar:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  filter: blue(30px);
+}
+
+/* BEGIN SMOOTH DETAILS VIEW SECTION */
+details[open] summary~* {
+  animation: sweep .5s ease-in-out;
+}
+
+details[close] summary~* {
+  animation: close-details .5s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-left: -10px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
+@keyframes close-details {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }

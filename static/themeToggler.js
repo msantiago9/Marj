@@ -8,4 +8,13 @@ const toggleTheme = () => {
       "/static/light.css";
   }
   light = !light;
+  fetch("/theme", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      theme: light ? "light" : "dark",
+    }),
+  });
 };

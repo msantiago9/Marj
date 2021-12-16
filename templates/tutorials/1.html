@@ -1,0 +1,190 @@
+{% extends "tutorialbase.html" %}
+{% block title %} Lesson 1 {% endblock %}
+{% block content %}
+<h1 id="welcome-to-java">Welcome to Java!</h1>
+<p><img src="https://cdn.discordapp.com/attachments/595772150078767106/917138802458370099/8d0.gif"
+        alt="What people think programming is like"></p>
+<p>The first program you are to write is known colloquially as the "Hello World" program.<br>
+    This is simply a sanity check program to see if you've set up your coding environment correctly.</p>
+<p>The Java command to print to standard output is:</p>
+<pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Your Text Here"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>With your text entered in between the two double quotes in the parentheses.<br>
+    Whenever you place something inside of println(), that thing is known as the <strong>parameter</strong> of
+    the command.</p>
+<h2 id="but-what-are-the-system-and-out-and-println-exactly">But what are the “System” and “out” and “println”
+    exactly?</h2>
+<p><strong>System</strong> is just a Java “class” that contains a lot of useful things that let us work with
+    input and output.<br>
+    <br>
+    <strong>out</strong> is a “field” of System that… does <em><strong>something</strong></em> to output. The
+    output window in its simplest form is the <em>terminal</em> or <em>console</em>. But what is that
+    <em><strong>something</strong></em>? Well,<br>
+    <br>
+    <strong>println()</strong> tells Java that we want to “print” or <em>display</em> whatever is inside of its
+    parentheses. the <em>ln</em> means “new line”, meaning after you print your message, Java will add a new
+    line to the bottom of the message.
+</p>
+<h2 id="setting-up-your-first-program">Setting up your first program</h2>
+<p>Now that you get the gist of how it works, you will now try to create your first Java program.</p>
+<details>
+    <ol>
+        <li>Open your coding environment (in this example, we will use Replit–if you want to follow along, <a
+                href="https://replit.com/signup?from=landing" target="_blank" rel="noreferrer">create an
+                account.</a>)</li>
+        <li>Once you’re logged in, click on the three dashes on the top left corner &gt; “Create Repl” &gt;
+            Select
+            Java as a template &gt; Name the Repl anything &gt; Create Repl</li>
+        <li>Replit will now generate a coding environment with a Main.java for you.</li>
+    </ol>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello world!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+            </code></pre>
+    <blockquote>
+        <p>If you are not on Replit, this is the code. Create a file called “Main.java” and paste it in there.
+        </p>
+    </blockquote>
+    <p>Notice there are other things in this code besides our print command. These are necessary
+        <em>boilerplate</em> lines that are needed as part of Java’s object-oriented structure. You don’t have
+        to
+        worry about what they do for now, but just know that your instructions will need to end up inside of
+    </p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            </code></pre>
+</details>
+<h2 id="task-1">Task 1</h2>
+<p>Click on the “Run button”. What do you see in the terminal window?</p>
+
+<details>
+    <summary>Answer</summary>
+    <h2 id="hello-world">Hello World!</h2>
+    <center><img src="https://cdn.discordapp.com/attachments/595772150078767106/917147616276516914/unknown.png"
+            width="400px"></center>
+    <p>You will also notice a bunch of other stuff in the terminal window too, such as:</p>
+    <pre class=" language-bash"><code class="prism  language-bash"><span class="token operator">&gt;</span> javac -classpath .:/run_dir/junit-4.12.jar:target/dependency/* -d <span class="token keyword">.</span> Main.java
+<span class="token operator">&gt;</span> java -classpath .:/run_dir/junit-4.12.jar:target/dependency/* Main
+            </code></pre>
+    <p>Indeed, it might not look exactly like this, but what Replit is doing is <em>compiling</em> then
+        <em>running</em> your Java Program.
+    </p>
+    <h2 id="compile">Compile??</h2>
+    <p>The compiler is a special program that turns your high-level programming language into low-level machine
+        code.</p>
+    <p>Recall that computers can’t really read anything except ones and zeroes–high-level programming languages
+        such
+        as Java need to be translated into machine code first, in order for your computer to understand what it
+        does.</p>
+    <center><img src="https://beginnersbook.com/wp-content/uploads/2013/05/JVM.jpg" width="400px"></center>
+    <p>In the case of Java, your java program gets compiled, and then turned into Bytecode (class files). This
+        means
+        that they aren’t <em>exactly</em> a bunch of ones and zeroes, but are instead a set of intermediary
+        instructions that the Java Virtual Machine can run on any platform.</p>
+    <p>One of Java’s biggest selling points is its “write-once, run anywhere” implementation. You can write Java
+        code on your PC and it will certainly run on an Android phone or a Mac. This is something that is not so
+        common–you will find that for languages such as C or C++, the program must be platform-specific
+        compiled.
+    </p>
+    <p><strong>All of the details aside, you did it! You ran your first Java program.</strong></p>
+</details>
+
+<h2 id="task-2">Task 2</h2>
+<p>Try to make Java say even more things.</p>
+<ol>
+    <li>Write a program that displays “Hello, {your-name}!” to standard output.</li>
+</ol>
+
+<details>
+    <summary>Answer...</summary>
+    <pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, Marjon!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            </code></pre>
+    <center><img src="https://cdn.discordapp.com/attachments/595772150078767106/917152329185243208/unknown.png"
+            width="700px"></center>
+
+
+</details>
+<hr>
+<ol start="2">
+    <li>Write a program that displays the following:</li>
+</ol>
+<blockquote>
+    <p>Hello, {your-name!}<br>
+        My name is Java.</p>
+</blockquote>
+<details style="margin-bottom:30px;">
+    <summary>Answer...</summary>
+    <pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, Marjon!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"My name is Java."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            </code></pre>
+    <center><img src="https://cdn.discordapp.com/attachments/595772150078767106/917153108499513354/unknown.png"
+            width="700px"></center>
+    <p>If you were a bit curious and tried to do it in one single print statement, you might have noticed that
+        Java
+        does not like that.</p>
+    <center><img src="https://cdn.discordapp.com/attachments/595772150078767106/917153418727022602/unknown.png"
+            width="800px"></center>
+    <p>Well, the truth is it’s <em>still</em> possible to do it with one print statement with the following:</p>
+    <pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, Marjon!\nMy name is Java."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            </code></pre>
+    <p>The <strong>\n</strong> is known as an escape character–specifically, it tells Java “Create a new line
+        after
+        this.”</p>
+    <h2 id="so-which-one-is-better">So which one is better?</h2>
+    <p>These two pieces of code do exactly the same thing. Which one do you think ends up more readable?</p>
+    <pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"d"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"e"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code>
+</pre>
+    <pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a\nb\nc\nd\ne"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            </code></pre>
+    <p>Well, I would argue that the first one is much more readable than the second one.</p>
+    <p>But the biggest tradeoff is redundancy–as Computer Scientists, you are trying to avoid creating
+        redundancy as
+        much as you can.</p>
+    <p>To maintain and upkeep the first piece of code, you have to through 5 different print statements and edit
+        their parameters. Talk about a pain. And if you wanted to add “f”, or “g”, you would have to create yet
+        again two <strong>more</strong> print statements for that. On the second one, however, you have one
+        place to
+        look at, one place to edit.</p>
+    <h2 id="other-escape-characters">Other escape characters</h2>
+    <pre><code> \t
+            </code></pre>
+    <p>Creates a tab after.</p>
+    <center><img src="https://cdn.discordapp.com/attachments/595772150078767106/917155973750222879/unknown.png"
+            width="900px"></center>
+    <pre><code>\' and \"
+            </code></pre>
+    <p>Creates single quotes and double quotes. Java uses single and double quotes for other things, so these
+        are
+        necessary to display them.</p>
+    <center><img src="https://cdn.discordapp.com/attachments/595772150078767106/917157031562055780/unknown.png"
+            width="900px"></center>
+    <pre><code>\
+            </code></pre>
+    <p>Creates a single backslash.<br>
+        … Wait a second, why does it only produce one backslash instead of two?</p>
+    <pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\//\"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            </code></pre>
+    <p>What is the output of this code?</p>
+    Answer...
+    <center><img src="https://cdn.discordapp.com/attachments/595772150078767106/917158661447647332/unknown.png"
+            width="700px"></center>
+    <p>That’s right, \ turns into \ because “\” IS a special character in itself (used for all of the escape
+        characters.<br>
+        The next time you see</p>
+    <pre><code>"\\\\" output is -&gt; \\
+            </code></pre>
+    <p>The output will always be half the number of backslashes. BUT</p>
+    <pre><code>"////////" output is -&gt; ////////
+            </code></pre>
+    <p>Forward slashes are <em>not</em> special, and therefore not escaped.</p>
+    <p>If you want to learn more about other escape characters, <a
+            href="https://docs.oracle.com/javase/tutorial/java/data/characters.html" target="_blank"
+            rel="noreferrer">look here.</a></p>
+</details>
+{% endblock %}
