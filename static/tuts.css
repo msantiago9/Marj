@@ -69,7 +69,7 @@ summary {
 
 .normal {
   transform: scale(1);
-  transform-origin: center;
+  transform-origin: top;
   margin-top: inherit;
   transition: background-color 150ms linear, color 150ms linear, box-shadow 150ms linear, text-shadow 150ms linear, transform 150ms ease-in, transform-origin 150ms ease-in, margin-top 150ms ease-in;
 }
@@ -78,8 +78,8 @@ summary {
 @media screen and (orientation:landscape) {
   .zoom {
     transform: scale(1.35);
-    transform-origin: center;
-    margin-top: 50vh;
+    transform-origin: top;
+    margin-top: 10vh;
     transition: background-color 150ms linear, color 150ms linear, box-shadow 150ms linear, text-shadow 150ms linear, transform 150ms ease-in, transform-origin 150ms ease-in, margin-top 150ms ease-in;
   }
 }
