@@ -10,7 +10,7 @@ load_dotenv(find_dotenv())
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 # Set SESSION_COOKIE_SECURE to false during development.
-app.config["SESSION_COOKIE_SECURE"] = True
+app.config["SESSION_COOKIE_SECURE"] = False
 
 
 @app.before_first_request

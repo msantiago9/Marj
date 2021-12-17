@@ -24,6 +24,33 @@
     {% elif 'light' == theme %}
     <link rel="stylesheet" href="{{ url_for('static', filename='light.css')}}" />
     {% endif %}
+    <style>
+        #tutorial-main {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #slides {
+            margin-left: 30px;
+        }
+
+        #slides>p>* {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        #slides>p>*:hover {
+            filter: brightness(0.8);
+        }
+
+        hr {
+            margin: 0;
+        }
+
+        .unclickable {
+            user-select: none;
+        }
+    </style>
     <title>Home</title>
 </head>
 
@@ -37,10 +64,30 @@
         <img src="{{ url_for('static', filename='images/lain1.jpg')}}" alt="lain" width=500 id="top-image-index">
         <pre class=" language-markdown"><code class="prism  language-markdown"><span class="token list punctuation">+</span> Tutorials for APCS Students, WIP
 </code></pre>
-        <p><a href="./java/0" class="no-link-style">Lesson 0 - Preface</a><br>
-            <a href="./java/1" class="no-link-style">Lesson 1 - Hello World</a><br>
-            <a href="./java/2" class="no-link-style">Lesson 2 - Data Types</a><br>
-        </p>
+        <div id="tutorial-main">
+            <div id="lessons">
+                <span class="unclickable">Lessons</span>
+                <hr>
+                <p>
+                    <a href="./java/0" class="no-link-style">Lesson 0 - Preface</a><br>
+                    <a href="./java/1" class="no-link-style">Lesson 1 - Hello World</a><br>
+                    <a href="./java/2" class="no-link-style">Lesson 2 - Data Types</a><br>
+                </p>
+            </div>
+            <div id="slides">
+                <span class="unclickable">Slides</span>
+                <hr>
+                <p>
+                    <a href="{{ url_for('static', filename='ppts/AP0-1.pptx')}}">AP0-1 - Welcome Slide</a><br>
+                    <a href="{{ url_for('static', filename='ppts/AP1-1.pptx')}}">AP1-1 - An Intro to Programming</a><br>
+                    <a href="{{ url_for('static', filename='ppts/AP2-1.pptx')}}">AP2-1 - Print Statements</a><br>
+                    <a href="{{ url_for('static', filename='ppts/AP3-1.pptx')}}">AP3-1 - Variables and Primitive
+                        Types</a><br>
+                    <a href="{{ url_for('static', filename='ppts/AP4-1.pptx')}}">AP4-1 - User Input and Java
+                        Libraries</a><br>
+                </p>
+            </div>
+        </div>
         <hr>
         <a href="#theme-toggler" class="no-link-style" id="return-to-top">return to top</a>
 
