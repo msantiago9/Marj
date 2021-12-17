@@ -1,0 +1,493 @@
+<!-- Not to be rendered. For templating use only. -->
+{% extends "tutorialbase.html" %}
+{% block title %} Lesson 2 {% endblock %}
+{% block content %}
+<h1 id="data-types">Data Types</h1>
+<p><img src="{{ url_for('static', filename='images/data-types.jpg')}}" width=650 class="shadowed" alt="Java Types"><br>
+    While technically every piece of information that we supply to computers will inevitably be interpretted as ones and
+    zeroes, it should come to no one's surprise that we still have many ways of modelling data. Java needs to know what
+    data you are throwing around in order to properly handle it in certain scenarios. Like for example, adding two words
+    together is a completely different operation than adding two numbers together.</p>
+<p>The chart above shows all 8 <strong>primitive types</strong> in their full glory–the <strong>boolean</strong> which
+    can only be one of two values: <em>true</em> or <em>false</em>, the <strong>char</strong> which simultaneously
+    stores a positive integer value AND its ASCII representation (basically allowing you to do some serious fiddling
+    like adding a number to a character), various implementation of <strong>integer-type numbers</strong> (the most
+    commonly used one among them would be the int), and <strong>floating point numbers</strong> (float and double) which
+    are essentially numbers stored in scientific notation.</p>
+<p>String is not a primitive type. It is a sequence of characters–by building up from a primitive type it sort of outs
+    itself as a class data type. You can also tell this by two other observations: String types are capitalized, and
+    Strings have callable <strong>methods</strong>. You will find out more as we learn about Strings in detail.</p>
+<p>In this lesson, you will be focusing mainly on the primitive types–the building blocks of any programming language.
+</p>
+<h2 id="section-1.-variable-declaration">Section 1. Variable Declaration</h2>
+<details>
+    <summary>Expand</summary>
+    <p>Before you use data types of any sort, it's first important that you understand that Java has many ways to work
+        with
+        data. For example:</p>
+    <pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </code></pre>
+    <p>This piece of code is adding two <strong>integers</strong> together. The output would be:</p>
+    <blockquote>
+        <p>5</p>
+    </blockquote>
+    <p>As you should expect.</p>
+    <p>However, often we don’t want to just add <strong>2</strong> and <strong>3</strong> specifically–what if we wanted
+        to
+        add <em><strong>two unknown values</strong></em>?</p>
+    <p>For this, we use variable declarations. Here would be how we replicate the above:</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </code></pre>
+    <p>The output of this piece of code is also <strong>5</strong>. But now, we have two variables–a and b–that we can
+        assign values to, and perform mathematical operations with.</p>
+    <p>There's a lot to digest here, so it's worth it to look at each key word.</p>
+    <p>Variable declaration goes like this:<br>
+        <em><strong>&lt;data type&gt; &lt;variable name&gt; = &lt;value&gt;;</strong></em>
+    </p>
+    <p>Some more examples…</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> first <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> second <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    
+<span class="token keyword">boolean</span> iDidMyHomework <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> visitedZoo<span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    
+<span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> y <span class="token operator">=</span> <span class="token number">2.718</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> z <span class="token operator">=</span> x<span class="token operator">-</span>y<span class="token punctuation">;</span>
+    
+<span class="token keyword">char</span> middleInitial <span class="token operator">=</span> <span class="token string">'R'</span><span class="token punctuation">;</span>
+    </code></pre>
+    <p>Of course, you can call System.out.println() on any of these variables, and perform specific operations on them.
+    </p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> first<span class="token punctuation">;</span>
+first <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </code></pre>
+    <p>This is an example of <strong>declaring</strong> a variable but not <strong>initializing</strong> it. You can
+        always
+        declare variables like this–if you have no idea what the initial value should be, you can always assign it
+        later.
+    </p>
+    <p>Likewise, you can also <strong>modify</strong> the value of variables like this:</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> first<span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+first <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </code></pre>
+    <p>In this case, first is initialized with a value of 1 but is then <strong>overwritten</strong> by the value of
+        <em>2</em>, so the output is
+    </p>
+    <blockquote>
+        <p>1<br>
+            2</p>
+    </blockquote>
+</details>
+<h2 id="exercise-1">Exercise 1</h2>
+<details>
+    <summary>Expand</summary>
+    <p>What is the output of the following code?</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </code></pre>
+    <details>
+        <summary>Answer</summary>
+        <p>12</p>
+    </details>
+</details>
+<h2 id="exercise-2">Exercise 2</h2>
+<details>
+    <summary>Expand</summary>
+    <p>What is the output of the following code?</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">boolean</span> mathSucks<span class="token punctuation">;</span>
+mathSucks <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>mathSucks<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </code></pre>
+    <details>
+        <summary>Answer</summary>
+        <p>false. Even if you disagree with the boolean, facts don’t care about your feelings. 😎</p>
+    </details>
+</details>
+<h2 id="section-2.-primitive-data-types">Section 2. Primitive Data Types</h2>
+<details>
+    <summary>Expand</summary>
+    <p><strong>Primitive Types</strong> are the simplest form of data in Java, and come in eight flavors. However, I
+        want
+        you to focus your attention on just these four for now.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Size in Memory</th>
+                <th>Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>boolean</td>
+                <td>1-bit</td>
+                <td>true or false</td>
+            </tr>
+            <tr>
+                <td>char</td>
+                <td>16-bit (2 bytes)</td>
+                <td>0, 65,535</td>
+            </tr>
+            <tr>
+                <td>int</td>
+                <td>32-bit (4 bytes)</td>
+                <td>-2<sup>31</sup>, 2<sup>31</sup> - 1</td>
+            </tr>
+            <tr>
+                <td>double</td>
+                <td>64-bit (8 bytes)</td>
+                <td>±1.798 × 10<sup>308</sup></td>
+            </tr>
+        </tbody>
+    </table>
+</details>
+<h2 id="section-3.-booleans">Section 3. Booleans</h2>
+<details>
+    <summary>Expand</summary>
+    <p>Booleans store <strong>boolean</strong> values (true or false). Booleans are the simplest primitive type because
+        of
+        this. However, they have <strong>very many</strong> use cases–they can be used as flags to check if something
+        happened, or if a fact is valid or invalid.</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">boolean</span> iPassedAllOfMyFinals <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    </code></pre>
+    <h3 id="boolean-operators">Boolean operators</h3>
+    <h4 id="and---">and ( &amp;&amp; )</h4>
+    <p>Sometimes we want to check if two conditions have been met. For example, you’ll want to leave the house if you
+        have
+        <strong>put your shoes on</strong> AND if you’ve <strong>brushed your teeth</strong>:
+    </p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">boolean</span> myShoesAreOn <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> brushedMyTeeth <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>myShoesAreON <span class="token operator">&amp;&amp;</span> brushedMyTeeth<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Output: true</span>
+    </code></pre>
+    <p>In this example, we are using the AND operator <strong>&amp;&amp;</strong>. We are checking if both of the
+        boolean
+        values are <strong>true</strong>, and if they both are <strong>true</strong>, then the statement evaluates to
+        <strong>true</strong>.
+    </p>
+    <p>However, if I didn’t put my shoes on yet, I would having something like this:</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">boolean</span> myShoesAreOn <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> brushedMyTeeth <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>myShoesAreOn <span class="token operator">&amp;&amp;</span> brushedMyTeeth<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Output: false</span>
+    </code></pre>
+    <p>Since I didn’t put my shoes on yet, one of the boolean values are <strong>false</strong>, so the entire statement
+        is
+        <strong>false</strong>.
+    </p>
+    <h4 id="or----">or ( | | )</h4>
+    <p>What if we only care about one of the two conditions? For example, I want to check whether I went to the
+        <strong>mall</strong> or I went to the <strong>park</strong>—as long as I went to either place, I know I had a
+        busy
+        day.
+    </p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">boolean</span> wentToPark <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> wentToMall <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>wentToPark <span class="token operator">||</span> went toMall<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: true</span>
+    </code></pre>
+    <p>This is an example of logical <strong>or</strong>, | | .</p>
+    <p>In this case, I went to the <strong>park</strong>, but <strong>not the mall</strong>. The output is still
+        <strong>true</strong> because at least one of the conditions was true. On the other hand, I could go to the mall
+        and
+        NOT the park<br>
+        And it would still evaluate to true. If I didn’t go to either, then the output is false, and I likely didn’t go
+        outside (at least in our made-up scenario).
+    </p>
+    <h4 id="not---">not ( ! )</h4>
+    <p>So far we’ve checked if some condition has been met, but sometimes we are interested if some condition has not
+        been
+        met. For example, I would like to know if I <strong>haven’t gone to college yet</strong> (I have), I could say:
+    </p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">boolean</span> wentToCollege <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">!</span>wentToCollege<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//output: false</span>
+    </code></pre>
+    <p>In this example, we are using logical <strong>not</strong> !<br>
+        Since I <strong>went to college</strong>, and I am asking if I did <strong>NOT</strong> got to college, the
+        output
+        is false.</p>
+    <p>In other words, the not operator <strong>inverts the value</strong> of the boolean variable. If the value is
+        currently <strong>true</strong>, then the output is <em><strong>false</strong></em>, and if the value is
+        currently
+        <strong>false</strong>, then the output is <em><strong>true</strong></em>.
+    </p>
+    <h4 id="combining-it-together">combining it together</h4>
+    <p>You will see that this can get pretty complex. Let’s say it’s final exam week, and in order to keep my
+        scholarship I
+        need the following conditions to be true:</p>
+    <ul>
+        <li>I pass English AND Math</li>
+        <li>Alternatively, I can just pass Science.</li>
+        <li>I do not cheat</li>
+    </ul>
+    <p>Science is weight mored because It’s worth 4 credit hours compared to the 2 credit hours each of English and
+        Math.
+        You could model something like this:</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">boolean</span> passedEnglish <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> passedMath <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> passedScience <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> cheated <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>passedEnglish <span class="token operator">&amp;&amp;</span> passedMath<span class="token punctuation">)</span> <span class="token operator">||</span> passedScience<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>cheated<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </code></pre>
+    <p>You can kind of see how the conditions translate into boolean expressions. In short, since I cheated on the exam,
+        the
+        entire statement is false, and I lost my scholarship. Boohoo!</p>
+    <p>We will cover boolean expressions in more detail later.</p>
+</details>
+<h2 id="section-4.-chars">Section 4. Chars</h2>
+<details>
+    <summary>Expand</summary>
+    <p>A char (short for character). it stores one single ASCII <strong>character</strong>. Emojis are not included in
+        this range, so in order to print emojis you will have to use a <strong>String</strong> and escape a unicode
+        character using \u.</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">char</span> grade <span class="token operator">=</span> <span class="token string">'F'</span><span class="token punctuation">;</span>
+</code></pre>
+    <p>One interesting thing to note is that chars have a <strong>numerical value</strong>, so you can add integers to
+        chars like
+        the
+        following:</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">char</span> grade <span class="token operator">=</span> <span class="token string">'a'</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Output: b</span>
+</code></pre>
+    <p>The ASCII value of a is 97. When we add 1 to 'a', we the ASCII value turns into 98, which represents 'b'. So the
+        output is now 'b'.</p>
+</details>
+<h2 id="section-5.-ints">Section 5. Ints</h2>
+<details>
+    <summary>Expand</summary>
+    <p>An int is a 32-bit signed whole number.</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> numSiblings <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    </code></pre>
+    <p>integers have a range of, roughly, ±2<sup>31</sup>.</p>
+    <p>Quick question though–I said ints are stored as 4 bytes (32-bits). So why 2<sup>31</sup> and not 2<sup>32</sup>?
+        The
+        answer is simple–one of the bits is reserved for the <strong>sign</strong> (+ or -). Thus the remaining 31 bits
+        encode the value.</p>
+    <p>ints can be used in several mathematical operations. Here are the four basic <strong>arithmetic
+            operations</strong>.
+    </p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token operator">+</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output is: 7 (5 plus 2 is 7)</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token operator">-</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output is: 3 (5 minus 2 is 3)</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token operator">*</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output is: 10 (5 times 2 is 10)</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token operator">/</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output is: 2 (5 divided by 2 is... 2(???))</span>
+    </code></pre>
+    <p>Makes sense right?–Wait a second, The division operation gave the wrong answer!</p>
+    <p>5/2 is equal to 2.5, so what gives? The answer is simple–integers do not work with decimal values, so they drop
+        whatever is past the decimal point, so <strong>2.5</strong> ends up as <strong>2</strong>.</p>
+    <p>There three other arithmetic operations that you likely haven’t used in math before.</p>
+    <h3 id="increment-operator-">Increment operator (++)</h3>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+x<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">//x is now 6</span>
+    </code></pre>
+    <p>The increment operator <strong>adds</strong> 1 to the current value. It’s a short hand way of writing</p>
+    <pre class=" language-java"><code class="prism  language-java">x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    </code></pre>
+    <p>As Computer Scientists, we strive to write as little code as possible and perform as many things as possible.</p>
+    <h3 id="decrement-operator---">Decrement operator (–)</h3>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+x<span class="token operator">--</span><span class="token punctuation">;</span> <span class="token comment">//x is now 4</span>
+    </code></pre>
+    <p>Just like the increment operator, the decrement operator <strong>subtracts</strong> 1 from the current value, and
+        is
+        short hand for</p>
+    <pre class=" language-java"><code class="prism  language-java">x <span class="token operator">=</span> x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    </code></pre>
+    <h3 id="modulo-operator-">Modulo operator (%)</h3>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token operator">%</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//output is 1</span>
+    </code></pre>
+    <p>The <strong>modulo</strong> operator calculates the <strong>remainder</strong>. The example above shows: 5
+        divided by
+        2 has a remainder of <strong>1</strong>.</p>
+    <p>This operator is <strong>super important</strong> in many areas of Computer Science–especially in Cryptography.
+        With
+        the modulo operator, you can check if any number is exactly divisible by another number (which can also reveal
+        if
+        the former is a prime number, since prime numbers can’t be divided evenly by anything besides 1 and themselves).
+    </p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">450</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token operator">%</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//output is 0--we know x is even.</span>
+    </code></pre>
+</details>
+<h2 id="section-6-doubles">Section 6: Doubles</h2>
+<details>
+    <summary>Expand</summary>
+    <p>Doubles are numbers that have decimal places.</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">double</span> circumference <span class="token operator">=</span> <span class="token number">3.14159</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> weight <span class="token operator">=</span> <span class="token number">191.2</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> angle <span class="token operator">=</span> <span class="token number">0.011</span><span class="token punctuation">;</span>
+</code></pre>
+    <p>Doubles are a <strong>superset</strong> of integers–in other words, all integers are doubles (1 is 1.0, for
+        example),
+        but doubles extend beyond the range of values that integers can represent.</p>
+    <p>In fact, doubles have a range of ±1.798 × 10<sup>308</sup>, or if you wrote out the zeroes it would look like
+        this:
+    </p>
+    <pre><code>1,798,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000
+</code></pre>
+    <p>With such an <strong>insane</strong> range of values, what’s the point of integers?</p>
+    <p>There are a couple reasons why you wouldn’t use a double over an int.</p>
+    <h3 id="memory">Memory</h3>
+    <p>doubles are stored as 64-bit values, meaning they take up 4 bytes of space in memory–twice the size of integers.
+        You
+        can run into memory issues much faster with them.</p>
+    <h3 id="precision">Precision</h3>
+    <p>I want you to guess the output of this code.</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">double</span> a <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> b <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+    <p><em><strong>Very clearly</strong></em> the answer is 0.3, right? <strong>No!</strong> The output of this code is
+        <strong>0.30000000000000004</strong> because floating point numbers are also stored in binary.
+    </p>
+    <p>Because 0.3 in binary is 0.01100110011…</p>
+    <p>The 0011 pattern repeats ad infinitum, but in reality we don’t have infinite bits to represent 0.3 so we end up
+        with
+    </p>
+    <blockquote>
+        <p>0.011001100110011001100110011001100110011001100110011</p>
+    </blockquote>
+    <p>Which is not exactly 0.3. This precision error is prevalent in so many languages that an entire website has
+        documented it: <a href="https://0.30000000000000004.com/">https://0.30000000000000004.com/</a></p>
+    <p>Java has certain work arounds for this (like Double.round()), but in the end, if you should think very deeply
+        about
+        what data type represents your data the best, and what tradeoffs there are to selecting one over the other.</p>
+</details>
+<h2 id="section-7-strings">Section 7: Strings</h2>
+<details>
+    <summary>Expand</summary>
+    <p>I won’t be covering <strong>Strings</strong> in too much detail in this section, as this lesson is focused on
+        primitive types. However, it’s important to note that you have been working with Strings this <strong>entire
+            time</strong>!</p>
+    <pre class=" language-java"><code class="prism  language-java">String message <span class="token operator">=</span> <span class="token string">"Hello World"</span><span class="token operator">!</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+    <p>Instead of printing a new string in our println statement, we are creating a String variable, assigning it a
+        value,
+        then printing the value of the String. You can also do stuff like <strong>concatenation</strong>:</p>
+    <pre class=" language-java"><code class="prism  language-java">String a <span class="token operator">=</span> <span class="token string">"Foo"</span><span class="token punctuation">;</span>
+String b <span class="token operator">=</span> <span class="token string">"Bar"</span><span class="token punctuation">;</span>
+String c <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output is FooBar</span>
+</code></pre>
+    <p>In this example, b is <strong>concatenated</strong> to a, meaning it’s essentially combined into one String
+        <em>c</em>.
+    </p>
+    <p><strong>Be careful</strong>: you can concatenate Strings with other data types, but they all <strong>turn into
+            Strings</strong>.</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+String message <span class="token operator">=</span> <span class="token string">"Sum: "</span> <span class="token operator">+</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+    <p>Here we are adding x, and y to sum. However, the output is</p>
+    <blockquote>
+        <p>Sum: 510</p>
+    </blockquote>
+    <p>Here’s the rationale behind this: "Sum: " + 5 is <strong>concatenated</strong> first, and then the resulting
+        String
+        is concatenated with 10 (the value of y).</p>
+    <p>If we want to perform mathematical operations on x and y, we should surround them in parentheses:</p>
+    <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+String message <span class="token operator">=</span> <span class="token string">"Sum: "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+    <p>And now the output is</p>
+    <blockquote>
+        <p>Sum: 15</p>
+    </blockquote>
+    <p>Which is what we were expecting in the first place.</p>
+</details>
+<h2 id="exercise-3">Exercise 3</h2>
+<details>
+    <summary>Expand</summary>
+    <p>Identify what variable type would suit each of these scenarios–Should it be a boolean, a char, an int, a double,
+        or a
+        String?</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Data</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>The number of classes you take per day</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Whether you skipped breakfast or not</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>The first letter of your last name</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>The square root of 2</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>A social media bio</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>The X-coordinate of a point on the XY-plane</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <details>
+        <summary>Answers</summary>
+        <h3 id="the-number-of-classes-you-take-per-day">The number of classes you take per day</h3>
+        <p>int</p>
+        <h3 id="whether-you-skipped-breakfast-or-not">Whether you skipped breakfast or not</h3>
+        <p>boolean</p>
+        <h3 id="the-first-letter-of-your-last-name">The first letter of your last name</h3>
+        <p>char</p>
+        <h3 id="the-square-root-of-2">The square root of 2</h3>
+        <p>double</p>
+        <h3 id="a-social-media-bio">A social media bio</h3>
+        <p>String</p>
+        <h3 id="the-x-coordinate-of-a-point-on-the-xy-plane">The X-coordinate of a point on the XY-plane</h3>
+        <p>double. However, if you were given more context, like if the point’s X-value could only be whole number
+            values,
+            it
+            would be better to use an int.</p>
+    </details>
+</details>
+{% endblock %}

@@ -29,6 +29,11 @@ summary {
   filter: brightness(0.8);
 }
 
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .stackedit {
   padding-top: 40px;
 }

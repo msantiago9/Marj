@@ -9,6 +9,7 @@ load_dotenv(find_dotenv())
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+# Set SESSION_COOKIE_SECURE to false during development.
 app.config["SESSION_COOKIE_SECURE"] = True
 
 
@@ -22,6 +23,8 @@ def initialize_session_variables():
 
 @app.route("/")
 def index():
+    print(session.get("size"))
+    print(session.get("theme"))
     if session.get("size") is None or session.get("theme") is None:
         initialize_session_variables()
     return render_template("index.html", size=session["size"], theme=session["theme"])
