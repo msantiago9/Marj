@@ -14,3 +14,8 @@ blockquote>p {
     color: rgb(0, 180, 156);
     transition: color 150ms linear;
 }
+
+
+details[open]>summary {
+    color: rgb(0, 109, 64);
+}

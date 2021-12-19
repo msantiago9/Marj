@@ -13,3 +13,8 @@
 blockquote>p {
     color: rgb(224, 224, 224);
 }
+
+
+details[open]>summary {
+    color: rgb(0, 255, 149);
+}
